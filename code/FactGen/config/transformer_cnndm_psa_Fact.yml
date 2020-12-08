@@ -1,0 +1,64 @@
+data: '../data/cnndm/CNNDM_BPE_COPY'
+run_name: 'fact'
+save_checkpoint_steps: 2000
+keep_checkpoint: 2
+seed: 123
+warmup_steps: 7000
+train_steps: 74000
+valid_steps: 500
+report_every: 100
+
+decoder_type: transformer
+encoder_type: transformer
+word_vec_size: 768
+rnn_size: 768
+enc_layers: 4
+dec_layers: 12
+transformer_ff: 3072
+heads: 12
+use_GPT_version_psa: 'true'
+
+multi_alpha: 0.001
+multi_task: 'true'
+multi_task_lr: 5e-5
+train_from: './output/cnndm_CNNDM_BPE_COPY/model_step_20000.pt'
+clf_path: './output/xx.torch'
+#multi_task_finish: 'true'
+save_model: './output/cnndm/checkpoints'
+#query_data: './data/encoder_tgt'
+#query_data: './data/cnndm/CNNDM_BPE_COPY'
+only_query: 'true'
+
+accum_count: 7
+optim: adam
+adam_beta1: 0.9
+adam_beta2: 0.998
+decay_method: stlr
+learning_rate: 1e-3
+max_grad_norm: 0.0
+disc_ft: 1.2
+dec_lr_factor: 3
+
+batch_size: 2800
+batch_type: tokens
+normalization: tokens
+dropout: 0.2
+label_smoothing: 0.1
+
+max_generator_batches: 0
+
+param_init: 0.0
+param_init_glorot: 'true'
+position_encoding: 'true'
+position_encoding_learned: 'true'
+position_encoding_ctxsize: 1024
+share_decoder_embeddings: 'true'
+share_position_embeddings: 'true'
+share_embeddings: 'true'
+
+copy_attn: 'true'
+
+world_size: 1
+gpu_ranks:
+- 0
+tensorboard: 'true'

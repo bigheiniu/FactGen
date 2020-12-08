@@ -1,0 +1,68 @@
+data: "./data/news_corpus/gossip/encoder_label"
+save_checkpoint_steps: 500
+keep_checkpoint: 2
+seed: 123
+warmup_steps: 2000
+train_steps: 70000
+valid_steps: 100
+report_every: 100
+
+decoder_type: transformer
+encoder_type: transformer
+word_vec_size: 768
+rnn_size: 768
+enc_layers: 4
+dec_layers: 12
+transformer_ff: 3072
+heads: 12
+use_GPT_version_psa: 'true'
+
+
+# for multi-task
+multi_alpha: 1
+multi_task: 'true'
+clf_task: 'true'
+multi_task_lr: 3e-4
+train_from: '/model_step_20500.pt'
+#multi_task_finish: 'true'
+save_model: './output/gossip_clf/checkpoints'
+
+
+
+accum_count: 7
+optim: adam
+adam_beta1: 0.9
+adam_beta2: 0.998
+decay_method: stlr
+learning_rate: 1e-4
+max_grad_norm: 0.0
+disc_ft: 1.2
+dec_lr_factor: 3
+
+batch_size: 2800
+batch_type: tokens
+normalization: tokens
+dropout: 0.2
+label_smoothing: 0.1
+
+max_generator_batches: 0
+
+param_init: 0.0
+param_init_glorot: 'true'
+position_encoding: 'true'
+position_encoding_learned: 'true'
+position_encoding_ctxsize: 1024
+share_decoder_embeddings: 'true'
+share_position_embeddings: 'true'
+share_embeddings: 'true'
+#
+#copy_attn: 'true'
+#reuse_copy_attn: 'true'
+#copy_loss_by_seqlength: 'true'
+#bridge: 'true'
+
+world_size: 1
+gpu_ranks:
+- 0
+tensorboard: 'true'
+
