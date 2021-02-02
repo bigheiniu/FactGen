@@ -77,3 +77,16 @@ Please check *AutomaticEvaluation* directory for three automatic text quality ev
 
 ### Detection
 Please check *Detection* directory for Neural Generation Detection 
+
+# Cite
+Please cite our paper if you use this code in your own work:
+```
+@misc{shu2020factenhanced,
+      title={Fact-Enhanced Synthetic News Generation}, 
+      author={Kai Shu and Yichuan Li and Kaize Ding and Huan Liu},
+      year={2020},
+      eprint={2012.04778},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL}
+}
+```
