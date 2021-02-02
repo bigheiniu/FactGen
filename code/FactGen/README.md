@@ -1,5 +1,11 @@
 # Factual-Enhanced Synthetic News Generation
 
+This was made to run with the following dependencies:
+
+1. Install python 3.6.1.
+2. Install pip 21.0.1 via `pip install --upgrade pip`.
+3. Install python dependencies via `pip install -r code/requirements.txt`.
+
 ## Download GPT2 weights
 
 `cd gpt2 && python download_model.py 124M`
@@ -10,8 +16,8 @@
 
 The datasets used are provided [here](https://github.com/abisee/cnn-dailymail).
 
-0. Download the processed data to `code/data/news_corpus/cnndm`.
-1. Convert the format from `.bin` to `.tgt.txt` and `.src.txt` using [this](https://gist.github.com/jorgeramirez/15286b588dc2669ced95bbf6a6803420) script.
+1. Download the processed data to `code/data/news_corpus/cnndm`.
+2. Convert the format from `.bin` to `.tgt.txt` and `.src.txt` using [this](https://gist.github.com/jorgeramirez/15286b588dc2669ced95bbf6a6803420) script.
 
 ### Preprocess
 
@@ -20,7 +26,7 @@ We provide the raw file under *../data* directory.
 1. Move to the work directory:
 `cd gpt2`
 2. You should first encode the test into byte.
-`python encode_text.py --directory ../../../data/news_corpus/cnndm`
+`python encode_text.py --directory ../../data/news_corpus/cnndm`
 3. Move to the FactGen directory:
 `cd ..`
 4. Zip the training data together:
