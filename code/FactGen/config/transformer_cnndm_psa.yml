@@ -1,4 +1,4 @@
-data: './data/cnndm/CNNDM_BPE_COPY'
+data: '../data/news_corpus/cnndm/CNNDM_BPE_COPY'
 run_name: 'fact'
 save_checkpoint_steps: 2000
 keep_checkpoint: 2
@@ -21,7 +21,7 @@ use_GPT_version_psa: 'true'
 #multi_alpha: 0.001
 #multi_task: 'true'
 #multi_task_lr: 5e-5
-train_from: './output/cnndm_CNNDM_BPE_COPY/model_step_20000.pt'
+#train_from: './output/cnndm_CNNDM_BPE_COPY/model_step_20000.pt'
 #multi_task_finish: 'true'
 save_model: './output/cnndm_expand/checkpoints'
 query_data: './data/encoder_tgt'
@@ -58,6 +58,6 @@ share_embeddings: 'true'
 copy_attn: 'true'
 
 world_size: 1
-gpu_ranks:
-- 0
+#gpu_ranks:
+#- 0
 tensorboard: 'true'
