@@ -130,11 +130,11 @@ dmypy.json
 
 # Custom
 .DS_Store
-.src
-.tgt
-.pt
-.bpe
+*.src
+*.tgt
+*.pt
+*.bpe
 vocab
 .python-version
-.bin
-.tsv
+*.bin
+*.tsv
