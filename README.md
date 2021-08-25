@@ -57,7 +57,35 @@ This stage only trains with claim and news content.
 `python train.py -config config/transformer_cnndm_psa_Fact_Query.yml -run_name psa -gpt2_params_path gpt2/models/124M/ -gpt2_init_embanddec`
 
 ### Generation
+Generation is performed via top-k/random sampling.  
+```
+       python translate.py \
+        -beam_size 1 \
+        -model ./output/checkpoints/model_step_21000.pt \
+        -src ../data/news_corpus/cnndm/test.txt.tgt.bpe \
+        -min_length 200 \
+        -max_length 300 \
+        -random_sampling_topk 100 -random_sampling_temp 0.9 \
+        -batch_size 40
+```
 
-Generation is performed via top-k/random sampling.
 
-        python translate.py \
+## Evaluate Model
+
+### Automatic Quality Evaluation
+Please check *AutomaticEvaluation* directory for three automatic text quality evaluation scripts. 
+
+### Detection
+Please check *Detection* directory for Neural Generation Detection 
+
+# Citation
+```
+@misc{shu2020factenhanced,
+      title={Fact-Enhanced Synthetic News Generation}, 
+      author={Kai Shu and Yichuan Li and Kaize Ding and Huan Liu},
+      year={2020},
+      eprint={2012.04778},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL}
+}
+```
