@@ -429,7 +429,7 @@ def train_opts(parser):
               help="Keep X checkpoints (negative: keep all)")
 
     # GPU
-    group.add('--gpuid', '-gpuid', default=[], nargs='*', type=int,
+    group.add('--gpuid', '-gpuid', nargs='*', type=int,
               help="Deprecated see world_size and gpu_ranks.")
     group.add('--gpu_ranks', '-gpu_ranks', default=[], nargs='*', type=int,
               help="list of ranks of each process.")
@@ -799,7 +799,7 @@ def translate_opts(parser):
     group = parser.add_argument_group('Efficiency')
     group.add('--batch_size', '-batch_size', type=int, default=30,
               help='Batch size')
-    group.add('--gpu', '-gpu', type=int, default=0,
+    group.add('--gpu', '-gpu', type=int, default=-1,
               help="Device to run on")
 
     # Options most relevant to speech.
